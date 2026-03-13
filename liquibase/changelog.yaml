@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001-create-todos
+      author: author
+      changes:
+        - createTable:
+            tableName: todos
+            columns:
+              - column:
+                  name: id
+                  type: TEXT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: TEXT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: completed
+                  type: BOOLEAN
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 0002-add-updated-at
+      author: author
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          columnExists:
+            tableName: todos
+            columnName: updated_at
+      changes:
+        - addColumn:
+            tableName: todos
+            columns:
+              - column:
+                  name: updated_at
+                  type: DATETIME
+                  defaultValueComputed: CURRENT_TIMESTAMP
+        - update:
+            tableName: todos
+            columns:
+              - column:
+                  name: updated_at
+                  valueComputed: created_at
+            where: updated_at IS NULL

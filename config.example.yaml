@@ -1,0 +1,53 @@
+env: dev
+
+server:
+  address: ":8080"
+  read_timeout: 5s
+  write_timeout: 10s
+  idle_timeout: 60s
+  body_limit_bytes: 1048576
+  shutdown_timeout: 10s
+
+db:
+  driver: sqlite3
+  dsn: ./data/todo.db
+
+redis:
+  enabled: true
+  addr: localhost:6379
+
+rate_limit:
+  default:
+    rps: 10
+    burst: 20
+  use_redis: false
+  redis_prefix: rate_limit
+  routes:
+    "GET /todos":
+      rps: 15
+      burst: 30
+    "GET /todos/:id":
+      rps: 15
+      burst: 30
+    "POST /todos":
+      rps: 5
+      burst: 10
+    "PUT /todos/:id":
+      rps: 5
+      burst: 10
+
+cors:
+  enabled: false
+  allowed_origins: ["*"]
+  allowed_methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+  allowed_headers: ["Authorization", "Content-Type", "X-Request-ID"]
+  expose_headers: ["X-RateLimit-Limit", "X-RateLimit-Remaining", "X-RateLimit-Reset"]
+  max_age_seconds: 600
+
+auth:
+  enabled: false
+  api_key: ""
+
+metrics:
+  enabled: true
+  path: /metrics

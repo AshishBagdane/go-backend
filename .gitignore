@@ -1,0 +1,54 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors/IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+
+# Go build artifacts
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.a
+
+# Go tooling caches (local)
+vendor/
+coverage.out
+coverprofile.out
+
+# Logs
+*.log
+
+# Env/config
+.env
+.env.*
+*.local
+
+# SQLite / local DB files
+*.db
+*.db-shm
+*.db-wal
+data/
+
+# Liquibase local driver/cache
+tools/
+
+
+# Docker
+.docker/
+
+# Node (if added later)
+node_modules/
+
+# Temp
+tmp/
+temp/

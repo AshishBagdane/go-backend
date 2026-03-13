@@ -1,0 +1,136 @@
+basePath: /
+definitions:
+  handlers.APIResponseTodo:
+    properties:
+      message:
+        type: string
+      response:
+        $ref: '#/definitions/models.Todo'
+      status:
+        type: integer
+    type: object
+  handlers.APIResponseTodos:
+    properties:
+      message:
+        type: string
+      response:
+        items:
+          $ref: '#/definitions/models.Todo'
+        type: array
+      status:
+        type: integer
+    type: object
+  models.Todo:
+    properties:
+      completed:
+        type: boolean
+      created_at:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@example.com
+    name: API Support
+  description: Production-grade Todo API built with Gin.
+  license:
+    name: MIT
+  termsOfService: http://example.com/terms/
+  title: Todo API
+  version: "1.0"
+paths:
+  /todos:
+    get:
+      description: fetch todos
+      parameters:
+      - description: Limit (max 100)
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.APIResponseTodos'
+      summary: Get todos
+      tags:
+      - todos
+    post:
+      consumes:
+      - application/json
+      description: create a todo item
+      parameters:
+      - description: Todo title
+        in: body
+        name: todo
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.APIResponseTodo'
+      summary: Create a new todo
+      tags:
+      - todos
+  /todos/{id}:
+    get:
+      description: fetch todo by ID
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.APIResponseTodo'
+      summary: Get todo by ID
+      tags:
+      - todos
+    put:
+      consumes:
+      - application/json
+      description: update todo by ID
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Todo title and completed status
+        in: body
+        name: todo
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.APIResponseTodo'
+      summary: Update todo by ID
+      tags:
+      - todos
+swagger: "2.0"

@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+
+  api:
+    build: .
+    container_name: todo-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      ENV: dev
+      DB_DRIVER: sqlite3
+      DB_DSN: /app/data/todo.db
+      REDIS_ENABLED: "true"
+      REDIS_ADDR: redis:6379
+      RATE_LIMIT_USE_REDIS: "true"
+      RATE_LIMIT_REDIS_PREFIX: "rate_limit"
+      METRICS_ENABLED: "true"
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: todo-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
