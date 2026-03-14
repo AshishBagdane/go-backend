@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-	"backend/internal/cache"
+	"github.com/AshishBagdane/go-backend/internal/cache"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"backend/internal/service"
+	"github.com/AshishBagdane/go-backend/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

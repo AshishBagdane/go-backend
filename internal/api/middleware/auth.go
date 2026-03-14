@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"backend/internal/api/handlers"
+	"github.com/AshishBagdane/go-backend/internal/api/handlers"
 
 	"github.com/gin-gonic/gin"
 )

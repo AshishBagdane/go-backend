@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"backend/internal/models"
+	"github.com/AshishBagdane/go-backend/internal/models"
 
 	"github.com/gin-gonic/gin"
 )

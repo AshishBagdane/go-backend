@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"backend/internal/models"
+	"github.com/AshishBagdane/go-backend/internal/models"
 
 	"github.com/jmoiron/sqlx"
 )

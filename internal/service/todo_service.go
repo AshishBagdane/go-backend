@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"time"
 
-	"backend/internal/cache"
-	"backend/internal/models"
-	"backend/internal/repository"
+	"github.com/AshishBagdane/go-backend/internal/cache"
+	"github.com/AshishBagdane/go-backend/internal/models"
+	"github.com/AshishBagdane/go-backend/internal/repository"
 
 	"github.com/google/uuid"
 )

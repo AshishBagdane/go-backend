@@ -9,13 +9,13 @@ import (
 	"syscall"
 	"time"
 
-	"backend/internal/api/handlers"
-	"backend/internal/api/middleware"
-	"backend/internal/cache"
-	"backend/internal/config"
-	"backend/internal/database"
-	"backend/internal/repository"
-	"backend/internal/service"
+	"github.com/AshishBagdane/go-backend/internal/api/handlers"
+	"github.com/AshishBagdane/go-backend/internal/api/middleware"
+	"github.com/AshishBagdane/go-backend/internal/cache"
+	"github.com/AshishBagdane/go-backend/internal/config"
+	"github.com/AshishBagdane/go-backend/internal/database"
+	"github.com/AshishBagdane/go-backend/internal/repository"
+	"github.com/AshishBagdane/go-backend/internal/service"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -23,16 +23,16 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	_ "backend/docs"
+	_ "github.com/AshishBagdane/go-backend/docs"
 )
 
-// @title Todo API
+// @title Go Backend API
 // @version 1.0
-// @description Production-grade Todo API built with Gin.
-// @termsOfService http://example.com/terms/
+// @description Production-grade Go backend boilerplate built with Gin.
+// @termsOfService https://example.com/terms
 
-// @contact.name API Support
-// @contact.email support@example.com
+// @contact.name Go Backend Team
+// @contact.email dev@example.com
 
 // @license.name MIT
 

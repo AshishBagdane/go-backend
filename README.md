@@ -200,7 +200,7 @@ Suggested steps:
 3. Replace all import paths to match the new module path.
    Example:
    ```bash
-   rg -l "backend" | xargs sed -i '' 's#backend#github.com/your-org/your-service#g'
+   rg -l "github.com/AshishBagdane/go-backend" | xargs sed -i '' 's#github.com/AshishBagdane/go-backend#github.com/your-org/your-service#g'
    ```
 4. Update `cmd/server/main.go` metadata:
    - Swagger title, description, base path
