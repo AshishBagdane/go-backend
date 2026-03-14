@@ -11,7 +11,7 @@ deps: ## Download Go dependencies
 	go mod tidy
 
 build: swagger ## Build the application (regenerates swagger docs first)
-	go build -o bin/idea-finder-agent cmd/server/main.go
+	go build -o bin/go-backend cmd/server/main.go
 
 run: ## Run the application
 	go run cmd/server/main.go
@@ -41,10 +41,10 @@ swagger-validate: swagger ## Regenerate and validate Swagger docs
 	@which swagger > /dev/null 2>&1 && swagger validate docs/swagger.json || echo "(install 'swagger' CLI to validate the spec)"
 
 docker-build: ## Build Docker image
-	docker build -t idea-finder-agent:latest .
+	docker build -t go-backend:latest .
 
 docker-run: ## Run Docker container
-	docker run -p 8080:8080 --env-file .env idea-finder-agent:latest
+	docker run -p 8080:8080 --env-file .env go-backend:latest
 
 format: ## Format Go code
 	go fmt ./...
@@ -56,10 +56,10 @@ db-status: ## Check Liquibase migration status
 	@echo "Checking database migration status..."
 	@liquibase status
 
-db-driver: ## Download SQLite JDBC driver for Liquibase (optional)
+db-driver: ## Download Postgres JDBC driver for Liquibase (optional)
 	@mkdir -p tools
-	@echo "Downloading SQLite JDBC driver..."
-	@curl -L -o tools/sqlite-jdbc.jar https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
+	@echo "Downloading Postgres JDBC driver..."
+	@curl -L -o tools/postgresql.jar https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.4/postgresql-42.7.4.jar
 
 db-migrate: ## Run pending Liquibase migrations
 	@echo "Running database migrations..."

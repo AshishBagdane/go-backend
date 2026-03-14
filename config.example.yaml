@@ -9,8 +9,8 @@ server:
   shutdown_timeout: 10s
 
 db:
-  driver: sqlite3
-  dsn: ./data/todo.db
+  driver: postgres
+  dsn: postgres://USER:PASSWORD@HOST:5432/DB?sslmode=require
 
 redis:
   enabled: true

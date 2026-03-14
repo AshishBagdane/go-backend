@@ -1,6 +1,6 @@
-# Idea Finder Backend (Production-Ready Boilerplate)
+# Go Backend (Production-Ready Boilerplate)
 
-This repository is a production-ready Go backend template built with Gin, SQLite, Redis, Liquibase, Prometheus metrics, and a unified API response format. It is designed to be used as a boilerplate for new services or a CLI-driven project generator.
+This repository is a production-ready Go backend template built with Gin, Supabase Postgres, Redis, Liquibase, Prometheus metrics, and a unified API response format. It is designed to be used as a boilerplate for new services or a CLI-driven project generator.
 
 ---
 
@@ -53,8 +53,8 @@ server:
   shutdown_timeout: 10s
 
 db:
-  driver: sqlite3
-  dsn: ./data/todo.db
+  driver: postgres
+  dsn: postgres://USER:PASSWORD@HOST:5432/DB?sslmode=require
 
 redis:
   enabled: true
@@ -116,6 +116,11 @@ make db-migrate
 make db-status
 make db-rollback COUNT=1
 ```
+
+Liquibase uses environment variables (via `liquibase.properties`):
+- `DB_JDBC_URL` (example: `jdbc:postgresql://db.<project>.supabase.co:5432/postgres`)
+- `DB_USERNAME`
+- `DB_PASSWORD`
 
 ---
 
@@ -195,7 +200,7 @@ Suggested steps:
 3. Replace all import paths to match the new module path.
    Example:
    ```bash
-   rg -l "github.com/AshishBagdane/idea-finder/backend" | xargs sed -i '' 's#github.com/AshishBagdane/idea-finder/backend#github.com/your-org/your-service#g'
+   rg -l "backend" | xargs sed -i '' 's#backend#github.com/your-org/your-service#g'
    ```
 4. Update `cmd/server/main.go` metadata:
    - Swagger title, description, base path

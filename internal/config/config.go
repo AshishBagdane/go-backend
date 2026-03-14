@@ -78,7 +78,7 @@ func Load() (Config, error) {
 	v.SetConfigName("config")
 	v.SetConfigType("yaml")
 	v.AddConfigPath(".")
-	v.AddConfigPath("/etc/idea-finder")
+	v.AddConfigPath("/etc/go-backend")
 
 	v.AutomaticEnv()
 	v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
@@ -110,8 +110,8 @@ func setDefaults(v *viper.Viper) {
 	v.SetDefault("server.body_limit_bytes", 1048576)
 	v.SetDefault("server.shutdown_timeout", "10s")
 
-	v.SetDefault("db.driver", "sqlite3")
-	v.SetDefault("db.dsn", "./data/todo.db")
+	v.SetDefault("db.driver", "postgres")
+	v.SetDefault("db.dsn", "postgres://USER:PASSWORD@HOST:5432/DB?sslmode=require")
 
 	v.SetDefault("redis.enabled", true)
 	v.SetDefault("redis.addr", "localhost:6379")

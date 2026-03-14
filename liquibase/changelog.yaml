@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: TEXT
+                  type: UUID
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -25,12 +25,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: created_at
-                  type: DATETIME
+                  type: TIMESTAMPTZ
                   constraints:
                     nullable: false
               - column:
                   name: updated_at
-                  type: DATETIME
+                  type: TIMESTAMPTZ
                   constraints:
                     nullable: false
 
@@ -49,8 +49,8 @@ databaseChangeLog:
             columns:
               - column:
                   name: updated_at
-                  type: DATETIME
-                  defaultValueComputed: CURRENT_TIMESTAMP
+                  type: TIMESTAMPTZ
+                  defaultValueComputed: now()
         - update:
             tableName: todos
             columns:
