@@ -9,10 +9,10 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://example.com/terms/",
+        "termsOfService": "https://example.com/terms",
         "contact": {
-            "name": "API Support",
-            "email": "support@example.com"
+            "name": "Go Backend Team",
+            "email": "dev@example.com"
         },
         "license": {
             "name": "MIT"
@@ -218,8 +218,8 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/",
 	Schemes:          []string{},
-	Title:            "Todo API",
-	Description:      "Production-grade Todo API built with Gin.",
+	Title:            "Go Backend API",
+	Description:      "Production-grade Go backend boilerplate built with Gin.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

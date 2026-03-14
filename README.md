@@ -40,6 +40,8 @@ make run
 
 Configuration uses Viper with a `config.yaml` file (optional) + environment overrides.
 
+An `.env.example` is included and can be copied to `.env` for local development.
+
 Example config:
 ```yaml
 env: dev

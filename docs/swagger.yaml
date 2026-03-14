@@ -36,13 +36,13 @@ definitions:
 host: localhost:8080
 info:
   contact:
-    email: support@example.com
-    name: API Support
-  description: Production-grade Todo API built with Gin.
+    email: dev@example.com
+    name: Go Backend Team
+  description: Production-grade Go backend boilerplate built with Gin.
   license:
     name: MIT
-  termsOfService: http://example.com/terms/
-  title: Todo API
+  termsOfService: https://example.com/terms
+  title: Go Backend API
   version: "1.0"
 paths:
   /todos:

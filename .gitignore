@@ -32,6 +32,7 @@ coverprofile.out
 .env
 .env.*
 *.local
+!.env.example
 
 # SQLite / local DB files
 *.db

@@ -1,12 +1,12 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Production-grade Todo API built with Gin.",
-        "title": "Todo API",
-        "termsOfService": "http://example.com/terms/",
+        "description": "Production-grade Go backend boilerplate built with Gin.",
+        "title": "Go Backend API",
+        "termsOfService": "https://example.com/terms",
         "contact": {
-            "name": "API Support",
-            "email": "support@example.com"
+            "name": "Go Backend Team",
+            "email": "dev@example.com"
         },
         "license": {
             "name": "MIT"
